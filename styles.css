@@ -502,42 +502,68 @@ nav a:hover{
     color:var(--secondary-color)
 }
 
-/* ===== HAMBURGER HIDDEN ON DESKTOP ===== */
+
+/* Hide hamburger by default */
 .hamburger {
   display: none;
-  font-size: 28px;
+  font-size: 32px;
+  color: #fff;
   cursor: pointer;
+  padding: 10px;
+  z-index: 2000;
 }
 
-/* ===== MOBILE MENU ===== */
+
+
+/* Mobile menu hidden initially */
 .mobile-menu {
   display: none;
-  background: #0A2A43;
   flex-direction: column;
-  padding: 15px;
+  background: #0A2A43;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  z-index: 1500;
 }
 
 .mobile-menu a {
-  color: white;
-  padding: 10px 0;
+  color: #fff;
   text-decoration: none;
+  padding: 12px 0;
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
+
+
 /* ===== RESPONSIVE BREAKPOINT ===== */
 @media (max-width: 768px) {
-  .nav {
-    display: none;
+
+  /* Hide the desktop nav links */
+  .nav-links {
+    display: none !important;
   }
 
+  /* Show the hamburger */
   .hamburger {
-    display: block;
+    display: block !important;
   }
 
-  .mobile-menu.active {
+  /* Adjust header layout */
+  header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+
+  /* When active, show mobile menu */
+  .mobile-menu.active {
+    display: flex !important;
   }
 }
+
 
 /* Hero Secrion */
 .hero{
