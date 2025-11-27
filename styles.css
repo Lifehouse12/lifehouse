@@ -363,6 +363,19 @@ p {
   line-height: 1.5;
 }
 
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .events-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .events-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Footer */
 footer {
   background: #0c1a57;
@@ -487,6 +500,43 @@ nav a{
 
 nav a:hover{
     color:var(--secondary-color)
+}
+
+/* ===== HAMBURGER HIDDEN ON DESKTOP ===== */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+  display: none;
+  background: #0A2A43;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.mobile-menu a {
+  color: white;
+  padding: 10px 0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ===== RESPONSIVE BREAKPOINT ===== */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
 }
 
 /* Hero Secrion */
