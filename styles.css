@@ -788,3 +788,34 @@ img{
         align-items: center;
     }
 }
+
+@media (max-width: 768px) {
+  /* Hide the desktop menu */
+  .main-nav {
+    display: none;
+  }
+
+  /* Redesign the header for a phone-sized layout */
+  .main-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  /* Show the mobile menu when the toggle is active */
+  .main-nav.is-open {
+    display: block;
+    /* Style the mobile menu for vertical layout */
+    position: absolute;
+    top: 60px; /* Adjust based on header height */
+    left: 0;
+    width: 100%;
+    background-color: #444;
+    text-align: center;
+  }
+
+  .main-nav.is-open ul {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+}
