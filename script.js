@@ -67,6 +67,14 @@ function declineCookies() {
            }
         }
 
+document.addEventListener("DOMContentLoaded", function() {
+  const menu = document.getElementById("mobileMenu");
+  const hamburger = document.querySelector(".hamburger");
+
+  hamburger.addEventListener("click", function() {
+    menu.classList.toggle("active");
+  });
+});
         
         // footer Year //
        document.getElementById("year").textContent = new Date().getFullYear();
