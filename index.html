@@ -462,7 +462,15 @@ function toggleMenu() {
   menu.classList.toggle("active");
 }
 </script>
+document.addEventListener("DOMContentLoaded", function() {
+  const menu = document.getElementById("mobileMenu");
+  const hamburger = document.querySelector(".hamburger");
 
+  hamburger.addEventListener("click", function() {
+    menu.classList.toggle("active");
+  });
+});
+    
 </body>
 </html>
 
