@@ -474,96 +474,90 @@ p{
     padding: 0 20px;
     width: 100%;
 }
+/* ============================
+   CLEAN RESPONSIVE NAVIGATION
+   ============================ */
 
- /*Header and Navigation */
-header{
-    background-color: var( --primary-color);
-    padding-top: 4rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav ul{
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    
-}
-
-nav a{
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s;
-}
-
-nav a:hover{
-    color:var(--secondary-color)
-}
-
-
-/* Hide hamburger by default */
-.hamburger {
-  display: none;
-  font-size: 32px;
-  color: #fff;
-  cursor: pointer;
-  padding: 10px;
+/* Header */
+header {
+  background: #0A3A60;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 2000;
 }
 
+/* Logo */
+.logo-container img {
+  height: 55px;
+  width: auto;
+}
 
+/* Desktop Navigation */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
 
-/* Mobile menu hidden initially */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #FFD700;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background: #0A2A43;
+  background: #0A3A60;
   width: 100%;
-  padding: 20px;
   position: absolute;
-  top: 80px;
+  top: 75px;
   left: 0;
-  z-index: 1500;
+  padding: 20px;
+  z-index: 1999;
 }
 
 .mobile-menu a {
-  color: #fff;
-  text-decoration: none;
+  color: white;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Show mobile menu */
+.mobile-menu.active {
+  display: flex;
+}
 
-
-/* ===== RESPONSIVE BREAKPOINT ===== */
+/* Responsive */
 @media (max-width: 768px) {
-
-  /* Hide the desktop nav links */
   .nav-links {
-    display: none !important;
+    display: none;
   }
 
-  /* Show the hamburger */
   .hamburger {
-    display: block !important;
-  }
-
-  /* Adjust header layout */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-  }
-
-  /* When active, show mobile menu */
-  .mobile-menu.active {
-    display: flex !important;
+    display: block;
   }
 }
-
 
 /* Hero Secrion */
 .hero{
