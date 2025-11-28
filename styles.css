@@ -503,67 +503,59 @@ nav a:hover{
 }
 
 
-/* Hide hamburger by default */
+/* ===== HAMBURGER ===== */
 .hamburger {
-  display: none;
-  font-size: 32px;
-  color: #fff;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 2000;
+    display: none;
+    font-size: 32px;
+    color: var(--light-text);
+    cursor: pointer;
+    z-index: 2000;
 }
 
-
-
-/* Mobile menu hidden initially */
+/* ===== MOBILE MENU ===== */
 .mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: #0A2A43;
-  width: 100%;
-  padding: 20px;
-  position: absolute;
-  top: 80px;
-  left: 0;
-  z-index: 1500;
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    z-index: 1500;
 }
 
 .mobile-menu a {
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-
-
-/* ===== RESPONSIVE BREAKPOINT ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+    /* Hide desktop nav links */
+    .nav-links {
+        display: none !important;
+    }
 
-  /* Hide the desktop nav links */
-  .nav-links {
-    display: none !important;
-  }
+    /* Show hamburger */
+    .hamburger {
+        display: block !important;
+    }
 
-  /* Show the hamburger */
-  .hamburger {
-    display: block !important;
-  }
+    /* Show mobile menu when active */
+    .mobile-menu.active {
+        display: flex !important;
+    }
 
-  /* Adjust header layout */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-  }
-
-  /* When active, show mobile menu */
-  .mobile-menu.active {
-    display: flex !important;
-  }
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
 }
-
 
 /* Hero Secrion */
 .hero{
@@ -849,45 +841,4 @@ img{
 }
 
 
-/* responsive design */
 
-@media (max-width: 768px) {
-    h1{
-        font-size: 2rem;
-    }
-    h2{
-        font: size 1.5rem;
-    }
-    nav u1{
-        flex-direction: column;
-        align-items: center;
-    }
-  /* Hide the desktop menu */
-  .main-nav {
-    display: none;
-  }
-
-  /* Redesign the header for a phone-sized layout */
-  .main-header {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px 20px;
-  }
-
-  /* Show the mobile menu when the toggle is active */
-  .main-nav.is-open {
-    display: block;
-    /* Style the mobile menu for vertical layout */
-    position: absolute;
-    top: 60px; /* Adjust based on header height */
-    left: 0;
-    width: 100%;
-    background-color: #444;
-    text-align: center;
-  }
-
-  .main-nav.is-open ul {
-    flex-direction: column;
-    padding: 20px 0;
-  }
-}
