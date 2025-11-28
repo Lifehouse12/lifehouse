@@ -38,7 +38,37 @@ document.getElementById("email-popup").addEventListener("click",function(e){
     }
 });
 
+// Hamburger Menu Functionality
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
 
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('active');
+            // Optional: toggle hamburger icon
+            this.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                hamburger.textContent = '☰';
+            }
+        });
+    }
+});
 
 // ==============================> Cookies <======================================
  
