@@ -6,95 +6,30 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https: data:;">
   <title>Lifehouse Power Chapel — Home</title>
   <meta name="description" content="Lifehouse Power Chapel — A place of worship, healing and community. Join our services, ministries and events." />
-  
 
-  <!-- Google tag (gtag.js) - FIXED -->
+  <!-- Google tag (gtag.js) -->
   <script>
-    function loadAnalytics(){
-      var gtaScript = document.createElement("script");
-      gtaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-Q662K6WWRN";
-      gtaScript.async = true;
-      document.head.appendChild(gtaScript);
+  function loadAnalytics(){
+    var gtaScript = document.createElement("script");
+    gtaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-Q662K6WWRN";
+    gtaScript.async = true;
+    document.head.appendChild(gtaScript);
 
-      gtaScript.onload = function() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Q662K6WWRN');
-      };
-    }
-    // Load analytics after page loads
-    window.addEventListener('load', loadAnalytics);
+    gtaScript.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q662K6WWRN');
+    };
+  }
   </script>
 
-  <!-- Countdown Timer -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const eventDate = new Date("2025-04-15T18:00:00").getTime();
-      const timer = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = eventDate - now;
-
-        if (distance < 0) {
-          const countdownElement = document.getElementById("countdown");
-          if (countdownElement) {
-            countdownElement.innerHTML = "Event Started!";
-          }
-          clearInterval(timer);
-          return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        const countdownElement = document.getElementById("countdown");
-        if (countdownElement) {
-          countdownElement.innerHTML = 
-            `<div class="countdown-box">
-               <span>${days}</span><small>Days</small>
-             </div>
-             <div class="countdown-box">
-               <span>${hours}</span><small>Hours</small>
-             </div>
-             <div class="countdown-box">
-               <span>${minutes}</span><small>Minutes</small>
-             </div>
-             <div class="countdown-box">
-               <span>${seconds}</span><small>Seconds</small>
-             </div>`;
-        }
-      }, 1000);
-    });
-  </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lifehouse Power Chapel</title>
-  
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Site description -->
   <meta name="description" content="Lifehouse power chapel is a church of Christ that believes in the doctrines and teachings of the Holy Bible. Our mission is to win souls, raise leaders and impact generations with the word of God.">
   <meta name="keywords" content="Christlike Believers, Winning Souls, Raising leaders, Holy Bible, God">
-
-  <!-- Open Graph tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lifehouse.github.io">
-  <meta property="og:title" content="Bible teaching church">
-  <meta property="og:description" content="Lifehouse Power Chapel - A place of worship, healing and community">
-  <meta property="og:image" content="https://lifehouse.github.io/images/social-prew.jpeg">
-
-  <!-- Twitter tags -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Bible teaching church">
-  <meta property="twitter:description" content="Lifehouse Power Chapel - A place of worship, healing and community">
-  <meta property="twitter:image" content="https://lifehouse.github.io/images/social-prew.jpeg">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://lifehouse.github.io/index.html">
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
@@ -129,7 +64,7 @@
     <div class="hamburger">☰</div>
   </header>
 
-  <!-- MOBILE MENU - FIXED STRUCTURE -->
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
@@ -144,31 +79,238 @@
     </ul>
   </div>
 
-  <!-- Hamburger JS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const hamburger = document.querySelector('.hamburger');
-      const mobileMenu = document.getElementById('mobileMenu');
-
-      if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', () => {
-          mobileMenu.classList.toggle('active');
-          // Toggle hamburger animation
-          hamburger.classList.toggle('active');
-        });
-      }
-    });
-  </script>
-
-  <!-- Rest of your content remains the same -->
+  <!-- Hero Slider -->
   <section class="hero-slider">
-    <!-- Your slider content -->
+    <div class="slider-container">
+      <div class="slide fade">
+        <img src="images/anniversary.jpg" alt="Church Anniversary">
+      </div>
+      <div class="slide fade">
+        <img src="images/church1.jpg" alt="Church Service">
+      </div>
+      <div class="slide fade">
+        <img src="images/Screenshot 2025-11-25 104140.png" alt="Church Event">
+      </div>
+    </div>
+
+    <div class="slider-dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
   </section>
 
-  <!-- Your other sections -->
+  <!-- About Section -->
+  <section id="about" class="fade-in">
+    <h2>About Us</h2>
+    <p>
+      Lifehouse Power Chapel is a Christ-centered ministry focused on raising kingdom ambassadors through the power of the Holy Spirit. We are passionate about transforming lives, nurturing faith, and empowering believers to impact the world for Jesus.
+    </p>
+  </section>
+  
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="fade-in">Our Worship Services</h2>
+    <p class="fade-in">
+      Join us as we gather to worship, pray, and experience the transforming power of God's Word.
+      There's always a place for you at Lifehouse Power Chapel!
+    </p>
 
-  <!-- Scripts at the bottom -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="ministry-grid fade-in">
+      <div class="ministry-card">
+        <h3>Sunday Service</h3>
+        <p><strong>Time:</strong> 9:00 AM – 12:00 PM</p>
+        <p>A powerful time of worship, Word, and fellowship. Experience the presence of God in a life-changing way.</p>
+      </div>
+
+      <div class="ministry-card">
+        <h3>Intercession Prayer</h3>
+        <p><strong>Time:</strong> 6:00 PM – 8:00 PM</p>
+        <p>Join us as we intercede, break chains, and release divine power through fervent prayer.</p>
+      </div>
+
+      <div class="ministry-card">
+        <h3>Wednesday Morning Prayer (Jericho Hour)</h3>
+        <p><strong>Time:</strong> 9:00 AM – 12:00 PM</p>
+        <p>Join us to pray fervently on various issues and topics.</p>
+      </div>
+
+      <div class="ministry-card">
+        <h3>Women Ministry</h3>
+        <p><strong>Time:</strong> Thursdays 6:00 PM – 8:00 PM</p>
+        <p>Women coming together in faith and unity to stand in prayer for families, the church, and the nation.</p>
+      </div>
+
+      <div class="ministry-card">
+        <h3>Men Ministry</h3>
+        <p><strong>Time:</strong> Thursdays 6:00 PM – 8:00 PM</p>
+        <p>Men coming together in faith and unity to stand in prayer for families, the church, and the nation.</p>
+      </div>
+
+      <div class="ministry-card">
+        <h3>Bethsaida Hour (Prayer Meeting)</h3>
+        <p><strong>Time:</strong> Friday 6:00 PM – 8:00 PM</p>
+        <p>Join us as we pray for mercy, break chains, and release divine power through fervent prayer.</p>
+      </div>
+
+      <div class="ministry-card">
+        <h3>Liberation Hour</h3>
+        <p><strong>Time:</strong> Saturdays 1:00 PM – 2:00 PM</p>
+        <p>Dynamic prayer session to transform lives by the Spirit of God.</p>
+      </div>
+      
+      <div class="ministry-card">
+        <h3>Youth Ministry</h3>
+        <p><strong>Time:</strong> Sundays 4:30 PM – 6:00 PM</p>
+        <p>Dynamic youth gatherings filled with worship, discussions, and mentorship for the next generation.</p>
+      </div>
+    </div>
+
+    <div class="fade-in verse-section">
+      <h2>"They that wait upon the Lord shall renew their strength."</h2>
+      <p class="verse">– Isaiah 40:31</p>
+    </div>
+  </section>
+
+  <!-- Ministries -->
+  <section id="ministries" class="fade-in">
+    <h2>Our Ministries</h2>
+    <div class="ministry-grid">
+      <div class="ministry-card">
+        <h3>Music Ministry</h3>
+        <p>Leading hearts into divine encounters through spirit-filled worship.</p>
+      </div>
+      
+      <div class="ministry-card">
+        <h3>Youth Ministry</h3>
+        <p>Raising the next generation of leaders with purpose and passion.</p>
+      </div>
+      
+      <div class="ministry-card">
+        <h3>Missions</h3>
+        <p>Taking the gospel beyond walls to reach souls everywhere.</p>
+      </div>
+        
+      <div class="ministry-card">
+        <h3>Children's Ministry</h3>
+        <p>Teaching children biblical values in a fun and safe environment.</p>
+      </div>
+
+      <div class="ministry-card">
+        <h3>Men Ministry</h3>
+        <p>Building strong men through fellowship and discipleship.</p>
+      </div>
+      
+      <div class="ministry-card">
+        <h3>Women Ministry</h3>
+        <p>Uniting women in faith, prayer, and spiritual growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery">
+    <h2>Church Moments</h2>
+    <div class="gallery-grid">
+      <img src="images/service.jpeg" alt="Church Service">
+      <img src="images/anni 1.jpg" alt="Church Anniversary">
+      <img src="images/church1.jpg" alt="Worship Service">
+      <img src="images/popsy.jpg" alt="Bishop">
+      <img src="images/church 2.jpg" alt="Church Event">
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="upcoming">
+    <h2>Upcoming Event</h2>
+    <div class="event-card">
+      <h3>Worship Night</h3>
+      <p>Join us for worship and Praises.</p>
+      <div id="countdown">
+        <div class="countdown-box">
+          <span id="days">00</span>
+          <small>Days</small>
+        </div>
+        <div class="countdown-box">
+          <span id="hours">00</span>
+          <small>Hours</small>
+        </div>
+        <div class="countdown-box">
+          <span id="minutes">00</span>
+          <small>Minutes</small>
+        </div>
+        <div class="countdown-box">
+          <span id="seconds">00</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+      <a href="events.html" class="btn blue-btn">See all events</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="fade-in">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you. Reach out to us or visit our worship center.</p>
+  </section>
+  
+  <!-- WHATSAPP BUTTON -->
+  <div class="whatsapp-btn">
+    <a href="https://wa.me/233530509434" target="_blank">
+      💬 Chat With Us on WhatsApp
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Lifehouse Power Chapel</h3>
+          <p>Nwa-Fie, Accra, Ghana</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/lifehousepowerchapel" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/glam_withlia" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/233530509434" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@lifehousecha" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Accra, Ghana</p>
+          <p><i class="fas fa-phone"></i> +233 530-509-434</p>
+          <p><i class="fas fa-envelope"></i> lpowerchapel@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2024</span> Lifehouse Power Chapel. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Email Popup -->
+  <div id="email-popup" class="popup-container" style="display:none;">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <h3>Join Us</h3>
+      <form id="email-form" action="https://gmail.us3.list-manage.com/subscribe/post?u=6ea9017ddebbd7a17c28bbb94&amp;id=6363d5634f&amp;f_id=0088e7e3f0" method="post" class="validate" target="_blank">
+        <input type="email" id="subscriber-email" name="EMAIL" placeholder="Your email address" required>
+        <input type="text" id="subscriber-phone" name="PHONE" placeholder="WhatsApp Contact" required>
+        <button type="submit" class="btn blue-btn">Subscribe</button> 
+      </form>
+    </div>
+  </div>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner">
+    We use cookies to improve your browsing experience. By clicking "Accept", you agree to our use of cookies.   
+    <button onclick="acceptCookies()">Accept</button>
+    <button onclick="declineCookies()">Decline</button>
+  </div>  
+
+  <!-- JavaScript -->
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
