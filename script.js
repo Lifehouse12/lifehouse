@@ -1,44 +1,70 @@
-//form submission
-document.getElementById("lead-form")
-.addEventListener("submit",function(e) {
+// Form submission
+document.getElementById("lead-form")?.addEventListener("submit", function(e) {
     e.preventDefault();
-// get form values  
-const firstname = this.elements[0].value;
-const lastname = this.elements[1].value;
-const email = this.elements[2].value;
-const bestpicks  = this.elements[2].value
+    
+    // Get form values  
+    const firstname = this.elements[0].value;
+    const lastname = this.elements[1].value;
+    const email = this.elements[2].value;
+    const bestpicks = this.elements[3].value; // Fixed index from 2 to 3
 
-//in real scenario,you would send this data to a server
-console.log("Lead Captured:") (firstname,lastname,email,bestpicks)
+    // In real scenario, you would send this data to a server
+    console.log("Lead Captured:", firstname, lastname, email, bestpicks); // Fixed syntax
 
-//show configuration
-alert("Thank you for your interest! We will contact you shortly")
+    // Show confirmation
+    alert("Thank you for your interest! We will contact you shortly");
 
-// Reset form
-this.reset()
+    // Reset form
+    this.reset();
+});
 
-}
-)
+// Show popup after 5 seconds 
+setTimeout(function() {
+    const popup = document.getElementById("email-popup");
+    if (popup) {
+        popup.style.display = "flex";
+    }
+}, 5000);
 
-// show popup after 5 seconds 
-setTimeout(function (){
-document.getElementById("email-popup").style.display="flex"
-},5000)
-
-//close popup when X is clicked
-document.querySelector(".close-btn").addEventListener("click",function(){
-    document.getElementById("email-popup").style.display="none";
-
-})
-
-// close when clicking outside content  
-document.getElementById("email-popup").addEventListener("click",function(e){
-    if(e.target===this){
-        this.style.display="none";
+// Close popup when X is clicked
+document.querySelector(".close-btn")?.addEventListener("click", function() {
+    const popup = document.getElementById("email-popup");
+    if (popup) {
+        popup.style.display = "none";
     }
 });
 
-// Hamburger Menu Functionality
+// Close when clicking outside content  
+document.getElementById("email-popup")?.addEventListener("click", function(e) {
+    if (e.target === this) {
+        this.style.display = "none";
+    }
+});
+
+// ==============================> Cookies <======================================
+function acceptCookies() {
+    document.getElementById("cookie-banner").style.display = "none";
+    localStorage.setItem("cookiesAccepted", "true");
+    loadAnalytics(); // GA4 - Fixed typo from localkAnalytics
+}
+
+function declineCookies() {
+    document.getElementById("cookie-banner").style.display = "none";
+    localStorage.setItem("cookiesAccepted", "false");
+}
+
+// On page load, check past choice
+window.onload = function() {
+    if (localStorage.getItem("cookiesAccepted") === "true") {
+        loadAnalytics();
+        document.getElementById("cookie-banner").style.display = "none";
+    } else if (localStorage.getItem("cookiesAccepted") === "false") {
+        document.getElementById("cookie-banner").style.display = "none";
+    }
+    // If no choice made, banner remains visible
+}
+
+// Hamburger Menu Functionality - SINGLE VERSION (removed duplicate)
 document.addEventListener("DOMContentLoaded", function() {
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -47,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         hamburger.addEventListener('click', function(e) {
             e.stopPropagation();
             mobileMenu.classList.toggle('active');
-            // Optional: toggle hamburger icon
+            // Toggle hamburger icon
             this.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
         });
 
@@ -67,47 +93,58 @@ document.addEventListener("DOMContentLoaded", function() {
                 hamburger.textContent = '☰';
             }
         });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                hamburger.textContent = '☰';
+            }
+        });
+    }
+
+    // Footer Year
+    const yearElement = document.getElementById("year");
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
     }
 });
 
-// ==============================> Cookies <======================================
- 
-    function acceptCookies() {
-    document.getElementById("cookie-banner").style.display="none";
-    localStorage.setItem("cookiesAccepted", "true")
-    localkAnalytics();//GA4
+// Slider functionality (if not already in your HTML)
+let slideIndex = 0;
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+
+    if (slides.length === 0) return;
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
-   
 
-function declineCookies() {
-    document.getElementById("cookie-banner").style.display="none";
-    localStorage.setItem("cookiesAccepted", "false")
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
 
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
     }
-   
-    // on page load,check past choice
-    window.onload=function() {
 
-        if(this.localStorage.getItem("cookiesAccepted")==="true"){
-            loadAnalytics();
-            document.getElementById("cookie-banner").style.display ="none";
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].style.display = "block";
+    }
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].className += " active";
+    }
 
-           }else if(localStorage.getItem("cookiesAccepted")=="false"){
-            document.getElementById("cookie-banner").style.display ="none";
-           }
-        }
+    setTimeout(showSlides, 3500);
+}
 
-document.addEventListener("DOMContentLoaded", function() {
-  const menu = document.getElementById("mobileMenu");
-  const hamburger = document.querySelector(".hamburger");
-
-  hamburger.addEventListener("click", function() {
-    menu.classList.toggle("active");
-  });
+// Initialize slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    showSlides();
 });
-        
-        // footer Year //
-       document.getElementById("year").textContent = new Date().getFullYear();
 
-       
- 
+function currentSlide(n) {
+    slideIndex = n - 1;
+    showSlides();
+}
