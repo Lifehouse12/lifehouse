@@ -9,7 +9,14 @@
   --light-text: #ffffff;
   --background-color: #79b9ee;
 }
-
+:root {
+  /* Brand Colors */
+  --primary-color: #0A3A60;       /* Deep church blue */
+  --accent-color: #D72638;        /* Red for highlights if needed */
+  --light-bg: #F7F9FC;            /* Soft background */
+  --dark-text: #222222;           /* Main text */
+  --light-text: #ffffff;          /* White text */
+  
 /* Global Reset */
 * {
   margin: 0;
@@ -26,125 +33,86 @@ body {
   line-height: 1.6;
   padding-top: 80px;
 }
-
-/* ===== HEADER & NAVIGATION ===== */
-header {
-  background: rgb(103, 163, 212);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 50px;
+*
+{
+margin: 0; padding: 0; box-sizing: border-box;
 }
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+body {
+font-family: 'Poppins'
+, sans-serif;
 }
-
+/* Header */
+* header {
+position: sticky;
+top: 0;
+background: #ffffff; padding: 15px 20px;
+box-shadow: 0 2px 4px rgba(0,0,0, 0.1); 
+z-index: 1000;
+}
+.container { 
+display: flex; 
+justify-content: space-between;
+align-items: center;
+｝
 .logo {
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: #0c1a57;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+font-size: 20px; 
+font-weight: bold;
 }
-
-.logo-container img {
-  height: 70px;
-  width: auto;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #0c1a57;
-  font-weight: 500;
-  transition: 0.3s;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #d62828;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* ===== HAMBURGER MENU ===== */
 .hamburger {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 10px;
-  color: #0c1a57;
-  background: none;
-  border: none;
-  z-index: 1001;
+  font-size: 28px; 
+  cursor: pointer; 
+  user-select: none;
 }
-
-/* MOBILE MENU */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(103, 163, 212, 0.98);
+  
+/* Offcanvas Menu */
+.offcanvas {
+position: fixed;
+top: 0;
+left: -250px; 
+width: 250px;
+height: 100%;
+background: #111; 
+color: white;
+transition: left 0.3s ease; 
   z-index: 999;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-  padding-top: 100px;
 }
-
-.mobile-menu.active {
-  display: block;
-  transform: translateX(0);
+.offcanvas.open{
+left: 0;
 }
-
-.mobile-menu ul {
-  list-style: none;
-  text-align: center;
-  padding: 0;
-  margin: 0;
+.offcanvas-content { 
+  padding: 20px;
 }
-
-.mobile-menu li {
-  margin: 15px 0;
+.offcanvas-content ul{ 
+ list-style: none; 
+  margin-top: 30px;
 }
-
-.mobile-menu a {
+.offcanvas-content ul li {
+  margin-bottom: 20px;
+}
+.offcanvas-content ul li a {
   color: white;
-  text-decoration: none;
-  font-size: 1.3rem;
-  font-weight: 600;
-  padding: 12px 20px;
-  display: block;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none; 
+  font-size: 18px; 
+  transition: 0.2s;
+}
+.close-btn {
+font-size: 24px; 
+cursor: pointer;
+float: right;
+}
+  
+.close-btn {
+font-size: 24px;
+cursor: pointer;
+float: right;
+}
+/* Hero section */
+.hero {
+padding: 100px 20px;
+text-align: center;
+background:  #f2f2f2;   
 }
 
-.mobile-menu a:hover,
-.mobile-menu a.active {
-  color: #0c1a57;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(10px);
-}
 
 /* ===== HERO SLIDER ===== */
 .hero-slider {
