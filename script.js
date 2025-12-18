@@ -1,116 +1,75 @@
-// Form submission
-document.getElementById("lead-form")?.addEventListener("submit", function(e) {
+//form submission
+document.getElementById("lead-form")
+.addEventListener("submit",function(e) {
     e.preventDefault();
-    
-    // Get form values  
-    const firstname = this.elements[0]?.value;
-    const lastname = this.elements[1]?.value;
-    const email = this.elements[2]?.value;
-    const bestpicks = this.elements[3]?.value;
+// get form values  
+const firstname = this.elements[0].value;
+const lastname = this.elements[1].value;
+const email = this.elements[2].value;
+const bestpicks  = this.elements[2].value
 
-    console.log("Lead Captured:", firstname, lastname, email, bestpicks);
-    alert("Thank you for your interest! We will contact you shortly");
-    this.reset();
-});
+//in real scenario,you would send this data to a server
+console.log("Lead Captured:") (firstname,lastname,email,bestpicks)
 
-// Popup functionality
-setTimeout(function() {
-    const popup = document.getElementById("email-popup");
-    if (popup) popup.style.display = "flex";
-}, 5000);
+//show configuration
+alert("Thank you for your interest! We will contact you shortly")
 
-document.querySelector(".close-btn")?.addEventListener("click", function() {
-    const popup = document.getElementById("email-popup");
-    if (popup) popup.style.display = "none";
-});
+// Reset form
+this.reset()
 
-document.getElementById("email-popup")?.addEventListener("click", function(e) {
-    if (e.target === this) this.style.display = "none";
-});
-
-// Cookie functions
-function acceptCookies() {
-    const banner = document.getElementById("cookie-banner");
-    if (banner) banner.style.display = "none";
-    localStorage.setItem("cookiesAccepted", "true");
-    if (typeof loadAnalytics === 'function') loadAnalytics();
 }
+)
+
+// show popup after 5 seconds 
+setTimeout(function (){
+document.getElementById("email-popup").style.display="flex"
+},5000)
+
+//close popup when X is clicked
+document.querySelector(".close-btn").addEventListener("click",function(){
+    document.getElementById("email-popup").style.display="none";
+
+})
+
+// close when clicking outside content  
+document.getElementById("email-popup").addEventListener("click",function(e){
+    if(e.target===this){
+        this.style.display="none";
+    }
+});
+
+
+
+// ==============================> Cookies <======================================
+ 
+    function acceptCookies() {
+    document.getElementById("cookie-banner").style.display="none";
+    localStorage.setItem("cookiesAccepted", "true")
+    localkAnalytics();//GA4
+    }
+   
 
 function declineCookies() {
-    const banner = document.getElementById("cookie-banner");
-    if (banner) banner.style.display = "none";
-    localStorage.setItem("cookiesAccepted", "false");
-}
+    document.getElementById("cookie-banner").style.display="none";
+    localStorage.setItem("cookiesAccepted", "false")
 
-// Check cookies on load
-window.addEventListener('load', function() {
-    if (localStorage.getItem("cookiesAccepted") === "true") {
-        if (typeof loadAnalytics === 'function') loadAnalytics();
-        document.getElementById("cookie-banner").style.display = "none";
-    } else if (localStorage.getItem("cookiesAccepted") === "false") {
-        document.getElementById("cookie-banner").style.display = "none";
     }
-});
+   
+    // on page load,check past choice
+    window.onload=function() {
 
-// Hamburger Menu - SIMPLE VERSION
-document.addEventListener("DOMContentLoaded", function() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            this.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
-        });
+        if(this.localStorage.getItem("cookiesAccepted")==="true"){
+            loadAnalytics();
+            document.getElementById("cookie-banner").style.display ="none";
+
+           }else if(localStorage.getItem("cookiesAccepted")=="false"){
+            document.getElementById("cookie-banner").style.display ="none";
+           }
+        }
+
         
-        // Close menu when clicking links
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                hamburger.textContent = '☰';
-            });
-        });
-    }
-    
-    // Footer year
-    const yearElement = document.getElementById("year");
-    if (yearElement) yearElement.textContent = new Date().getFullYear();
-});
+        // footer Year //
+       document.getElementById("year").textContent = new Date().getFullYear();
 
-// Slider functionality
-let slideIndex = 0;
-function showSlides() {
-    const slides = document.getElementsByClassName("slide");
-    const dots = document.getElementsByClassName("dot");
-    
-    if (slides.length === 0) return;
-    
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-    
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    
-    if (slides[slideIndex - 1]) slides[slideIndex - 1].style.display = "block";
-    if (dots[slideIndex - 1]) dots[slideIndex - 1].className += " active";
-    
-    setTimeout(showSlides, 3500);
-}
-
-// Initialize when ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', showSlides);
-} else {
-    showSlides();
-}
-
-function currentSlide(n) {
-    slideIndex = n - 1;
-    showSlides();
-}
+       
+ 
