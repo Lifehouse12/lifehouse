@@ -69,6 +69,7 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
+  color: white;
   top: 0;
   z-index: 1000;
 }
@@ -85,14 +86,11 @@ header {
 .logo {
   font-weight: 700;
   font-size: 1.3rem;
-  color: #0c1a57;
+  color:white;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-.logo-img {
-  max-height: 50px;
-  width: auto;
-}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -101,7 +99,7 @@ header {
 
 .nav-links a {
   text-decoration: none;
-  color: #0c1a57;
+  color: #edeff5;
   font-weight: 500;
   transition: 0.3s;
 }
@@ -110,6 +108,13 @@ header {
 .nav-links a.active {
   color: #d62828;
 }
+
+
+.pastor{
+   max-width: 50%;
+   height: 50%;
+}
+  
 
 /* Hero Section */
 .hero {
@@ -507,99 +512,68 @@ nav a:hover{
 }
 
 
-
-
-/* Fix the hamburger positioning and visibility */
+/* Hide hamburger by default */
 .hamburger {
-  display: none !important; /* Force hide on desktop */
+  display: none;
   font-size: 32px;
-  color: #0c1a57; /* Change to dark color for visibility */
+  color: #fff;
   cursor: pointer;
   padding: 10px;
-  position: fixed; /* Change from relative to fixed */
-  top: 25px;
-  right: 25px;
-  z-index: 2000; /* Very high z-index */
-  background: rgba(255, 255, 255, 0.9); /* Add background */
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 2000;
 }
 
-/* Mobile menu needs higher z-index and proper positioning */
+
+
+/* Mobile menu hidden initially */
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background: #0c1a57; /* Match your theme */
+  background: #0A2A43;
   width: 100%;
   padding: 20px;
-  position: fixed; /* Change from absolute to fixed */
-  top: 80px; /* Height of your header */
+  position: absolute;
+  top: 80px;
   left: 0;
-  z-index: 1999; /* Just below hamburger */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.mobile-menu.active {
-  display: flex !important;
+  z-index: 1500;
 }
 
 .mobile-menu a {
   color: #fff;
   text-decoration: none;
-  padding: 15px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  font-size: 18px;
-  text-align: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
+
+
+
+/* ===== RESPONSIVE BREAKPOINT ===== */
 @media (max-width: 768px) {
-  /* Hide desktop navigation */
+
+  /* Hide the desktop nav links */
   .nav-links {
     display: none !important;
   }
-  
-  /* Show hamburger */
+
+  /* Show the hamburger */
   .hamburger {
     display: block !important;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 2000;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 10px 15px;
-    border-radius: 4px;
   }
-  
-  /* Adjust header for mobile */
+
+  /* Adjust header layout */
   header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px;
-    height: 80px; /* Fixed header height */
   }
-  
-  .navbar {
-    padding: 10px 15px;
-  }
-  
-  .logo {
-    font-size: 1.1rem;
-    margin-left: 10px;
-  }
-  
-  /* Show mobile menu when active */
+
+  /* When active, show mobile menu */
   .mobile-menu.active {
     display: flex !important;
-    position: fixed;
-    top: 80px; /* Below header */
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-  }
-  
-  /* Adjust hero slider for mobile */
-  .hero-slider {
-    margin-top: 80px; /* Push below fixed header */
   }
 }
+
+
 /* Hero Secrion */
 .hero{
 
